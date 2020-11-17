@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"github.com/JocoolQ/parametros/controllers"
+	"github.com/udistrital/parametros_crud/controllers"
 
 	"github.com/astaxie/beego"
 )

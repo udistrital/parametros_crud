@@ -896,10 +896,12 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",

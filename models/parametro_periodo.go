@@ -11,7 +11,7 @@ import (
 )
 
 type ParametroPeriodo struct {
-	Id                int        `orm:"column(id);pk;auto"`
+	Id                int        `orm:"column(id);pk"`
 	ParametroId       *Parametro `orm:"column(parametro_id);rel(fk)"`
 	PeriodoId         *Periodo   `orm:"column(periodo_id);rel(fk)"`
 	Valor             string     `orm:"column(valor);type(json);null"`
