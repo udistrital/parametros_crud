@@ -1,4 +1,4 @@
-# parametros_estandar
+# parametros_crud
 
 API CRUD para la gestión de información definida por la organización para las entidades de la universidad.
 
@@ -19,7 +19,7 @@ PARAMETROS__RUNMODE=[modo de ejecución]
 PARAMETROS__PGSCHEMA=[esquema de bd]
 PARAMETROS__HTTPPORT=[puerto]
 ```
-**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con PARAMETROS_GOB__...
+**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con PARAMETROS__...
 
 ### Ejecución del Proyecto
 ```shell
@@ -37,8 +37,8 @@ PARAMETROS__HTTPPORT=8080 PARAMETROS__PGURLS=127.0.0.1:27017 PARAMETROS_SOME_VAR
 ```
 ### Ejecución Dockerfile
 ```shell
-# docker build --tag=parametros_gobierno . --no-cache
-# docker run -p 80:80 parametros_gobierno
+# docker build --tag=parametros_crud . --no-cache
+# docker run -p 80:80 parametros_crud
 ```
 
 ### Ejecución docker-compose
@@ -75,10 +75,10 @@ Pruebas unitarias
 
 ## Licencia
 
-This file is part of parametros_gobierno.
+This file is part of parametros_crud.
 
-parametros_gobierno is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+parametros_crud is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-parametros_gobierno is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+parametros_crud is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with parametros_gobierno. If not, see https://www.gnu.org/licenses/.
+You should have received a copy of the GNU General Public License along with parametros_crud. If not, see https://www.gnu.org/licenses/.
