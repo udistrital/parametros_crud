@@ -1,6 +1,6 @@
-# parametros_gobierno
+# parametros_estandar
 
-API CRUD para la gestión de información definida por el gobierno para las entidades
+API CRUD para la gestión de información definida por la organización para las entidades de la universidad.
 
 ## Especificaciones Técnicas
 
@@ -12,28 +12,28 @@ API CRUD para la gestión de información definida por el gobierno para las enti
 
 ### Variables de Entorno
 ```shell
-PARAMETROS_GOB__PGUSER=[usuario]
-PARAMETROS_GOB__PGPASS=[password del usuario]
-PARAMETROS_GOB__PGURLS=[url de bd]
-PARAMETROS_GOB__RUNMODE=[modo de ejecución]
-PARAMETROS_GOB__PGSCHEMA=[esquema de bd]
-PARAMETROS_GOB__HTTPPORT=[puerto]
+PARAMETROS__PGUSER=[usuario]
+PARAMETROS__PGPASS=[password del usuario]
+PARAMETROS__PGURLS=[url de bd]
+PARAMETROS__RUNMODE=[modo de ejecución]
+PARAMETROS__PGSCHEMA=[esquema de bd]
+PARAMETROS__HTTPPORT=[puerto]
 ```
 **NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con PARAMETROS_GOB__...
 
 ### Ejecución del Proyecto
 ```shell
 #1. Obtener el repositorio con Go
-go get github.com/udistrital/parametros_gobierno
+go get github.com/udistrital/parametros
 
 #2. Moverse a la carpeta del repositorio
-cd $GOPATH/src/github.com/udistrital/parametros_gobierno
+cd $GOPATH/src/github.com/udistrital/parametros
 
 # 3. Moverse a la rama **develop**
 git pull origin develop && git checkout develop
 
 # 4. alimentar todas las variables de entorno que utiliza el proyecto.
-PARAMETROS_GOB__HTTPPORT=8080 PARAMETROS_GOB__PGURLS=127.0.0.1:27017 PARAMETROS_GOB_SOME_VARIABLE=some_value bee run
+PARAMETROS__HTTPPORT=8080 PARAMETROS__PGURLS=127.0.0.1:27017 PARAMETROS_SOME_VARIABLE=some_value bee run
 ```
 ### Ejecución Dockerfile
 ```shell
@@ -70,14 +70,7 @@ Pruebas unitarias
 ```
 
 ## Modelo de Datos
-[Modelo de Datos Parametros Gobierno](/sql/parametros_gobierno.png)
-
-
-## Estado CI
-
-| Develop | Relese 0.0.1 | Master |
-| -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_gobierno/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_gobierno) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_gobierno/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_gobierno) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_gobierno/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_gobierno) |
+[Modelo de Datos Parametros](/sql/parametros.png)
 
 
 ## Licencia
