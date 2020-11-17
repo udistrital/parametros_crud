@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/JocoolQ/parametros/models"
+	"github.com/udistrital/parametros_crud/models"
 	"strconv"
 	"strings"
 
