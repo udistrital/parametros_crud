@@ -1,4 +1,4 @@
-# parametros_estandar
+# parametros_crud
 
 API CRUD para la gestión de información definida por la organización para las entidades de la universidad.
 
