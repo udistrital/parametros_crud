@@ -32,7 +32,7 @@ cd $GOPATH/src/github.com/udistrital/parametros
 # 3. Moverse a la rama **develop**
 git pull origin develop && git checkout develop
 
-# 4. alimentar todas las variables de entorno que utiliza el proyecto.
+# 4. Alimentar todas las variables de entorno que utiliza el proyecto.
 PARAMETROS__HTTPPORT=8080 PARAMETROS__PGURLS=127.0.0.1:27017 PARAMETROS_SOME_VARIABLE=some_value bee run
 ```
 ### Ejecución Dockerfile
