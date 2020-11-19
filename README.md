@@ -70,7 +70,7 @@ Pruebas unitarias
 ```
 
 ## Modelo de Datos
-[Modelo de Datos Parametros](/sql/parametros.png)
+[Modelo de Datos Parametros](/sql/modelo_parametros_crud.png)
 
 
 ## Licencia
