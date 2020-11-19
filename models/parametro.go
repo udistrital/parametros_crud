@@ -10,7 +10,7 @@ import (
 )
 
 type Parametro struct {
-	Id                int            `orm:"column(id);pk"`
+	Id                int            `orm:"column(id);pk;auto"`
 	Nombre            string         `orm:"column(nombre)"`
 	Descripcion       string         `orm:"column(descripcion);null"`
 	CodigoAbreviacion string         `orm:"column(codigo_abreviacion);null"`
@@ -19,9 +19,10 @@ type Parametro struct {
 	FechaCreacion     string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	TipoParametroId   *TipoParametro `orm:"column(tipo_parametro_id);rel(fk)"`
+	ParametroPadreId  *Parametro     `orm:"column(parametro_padre_id);rel(fk);null"`
 }
 
-func (t *Parametro) TableName() string {
+func (t *Parametro) TableName() string { 
 	return "parametro"
 }
 
