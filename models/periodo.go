@@ -5,23 +5,24 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Periodo struct {
-	Id                int     `orm:"column(id);pk;auto"`
-	Nombre            string  `orm:"column(nombre)"`
-	Descripcion       string  `orm:"column(descripcion);null"`
-	Year              float64 `orm:"column(year);null"`
-	Ciclo             string  `orm:"column(ciclo);null"`
-	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
-	Activo            bool    `orm:"column(activo)"`
-	AplicacionId      int     `orm:"column(aplicacion_id)"`
-	InicioVigencia    string  `orm:"column(inicio_vigencia);type(timestamp without time zone)"`
-	FinVigencia       string  `orm:"column(fin_vigencia);type(timestamp without time zone)"`
-	FechaCreacion     string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                int       `orm:"column(id);pk;auto"`
+	Nombre            string    `orm:"column(nombre)"`
+	Descripcion       string    `orm:"column(descripcion);null"`
+	Year              float64   `orm:"column(year);null"`
+	Ciclo             string    `orm:"column(ciclo);null"`
+	CodigoAbreviacion string    `orm:"column(codigo_abreviacion);null"`
+	Activo            bool      `orm:"column(activo)"`
+	AplicacionId      int       `orm:"column(aplicacion_id)"`
+	InicioVigencia    time.Time `orm:"column(inicio_vigencia);type(timestamp without time zone)"`
+	FinVigencia       time.Time `orm:"column(fin_vigencia);type(timestamp without time zone)"`
+	FechaCreacion     string    `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string    `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	//ParametroId       *Parametro `orm:"column(parametro_id);rel(fk)"`
 }
 
