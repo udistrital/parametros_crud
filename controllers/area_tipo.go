@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/parametros_crud/models"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	"github.com/udistrital/parametros_crud/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 // AreaTipoController operations for AreaTipo
@@ -36,6 +36,8 @@ func (c *AreaTipoController) URLMapping() {
 func (c *AreaTipoController) Post() {
 	var v models.AreaTipo
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddAreaTipo(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
@@ -154,6 +156,8 @@ func (c *AreaTipoController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.AreaTipo{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateAreaTipoById(&v); err == nil {
 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Update successful", "Data": v}
 		} else {
