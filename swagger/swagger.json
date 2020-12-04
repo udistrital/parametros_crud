@@ -1007,14 +1007,16 @@
                     "type": "string"
                 },
                 "FinVigencia": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
                 "InicioVigencia": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Nombre": {
                     "type": "string"

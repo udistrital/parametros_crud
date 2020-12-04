@@ -14,8 +14,8 @@ type ParametroPeriodo struct {
 	ParametroId       *Parametro `orm:"column(parametro_id);rel(fk)"`
 	PeriodoId         *Periodo   `orm:"column(periodo_id);rel(fk)"`
 	Valor             string     `orm:"column(valor);type(json);null"`
-	FechaCreacion     string     `orm:"column(fecha_creacion);type(timestamp with time zone)"`
-	FechaModificacion string     `orm:"column(fecha_modificacion);type(timestamp with time zone)"`
+	FechaCreacion     string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo            bool       `orm:"column(activo)"`
 }
 

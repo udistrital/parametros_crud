@@ -179,8 +179,8 @@ CREATE TABLE parametros.parametro_periodo
   parametro_id integer NOT NULL,
   periodo_id integer NOT NULL,
   valor json,
-  fecha_creacion timestamp with time zone NOT NULL,
-  fecha_modificacion timestamp with time zone NOT NULL,
+  fecha_creacion timestamp NOT NULL,
+  fecha_modificacion timestamp NOT NULL,
   activo boolean NOT NULL,
   CONSTRAINT pk_parametro_periodo PRIMARY KEY (id)
   
