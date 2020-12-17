@@ -30,5 +30,6 @@ func main() {
 		AllowCredentials: true,
 	}))
 	beego.ErrorController(&customerrorv2.CustomErrorController{})
+	apistatus.Init()
 	beego.Run()
 }
