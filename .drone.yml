@@ -194,7 +194,6 @@ steps:
     esac
   - AWS_REGION=us-east-1
   - SERVICE=${DRONE_REPO##udistrital/}_$AMBIENTE
-  - container_name=${DRONE_REPO##udistrital/}
   - apt-get update
   - apt-get install unzip
   - wget https://github.com/Autodesk/go-awsecs/releases/download/v1.1/update-aws-ecs-service-linux-amd64.zip
