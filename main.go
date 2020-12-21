@@ -7,7 +7,6 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/udistrital/parametros_crud/routers"
 	"github.com/udistrital/utils_oas/customerrorv2"
-	"fmt"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 )
 
