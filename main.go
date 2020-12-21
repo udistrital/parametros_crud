@@ -7,11 +7,20 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/udistrital/parametros_crud/routers"
 	"github.com/udistrital/utils_oas/customerrorv2"
+	"fmt"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 )
 
 func main() {
-	orm.RegisterDataBase("default", "postgres", "postgres://"+beego.AppConfig.String("PGuser")+":"+beego.AppConfig.String("PGpass")+"@"+beego.AppConfig.String("PGhost")+"/"+beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+beego.AppConfig.String("PGschema")+"")
+	fmt.Println("postgres://"+beego.AppConfig.String("PGuser")+":"+beego.AppConfig.String("PGpass")+"@"+beego.AppConfig.String("PGhost")+":"+beego.AppConfig.String("PGport")+"/"+beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+beego.AppConfig.String("PGschema")+"")
+	orm.RegisterDataBase("default", "postgres", "postgres://"+
+		beego.AppConfig.String("PGuser")+":"+
+		beego.AppConfig.String("PGpass")+"@"+
+		beego.AppConfig.String("PGhost")+":"+
+		beego.AppConfig.String("PGport")+"/"+
+		beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+
+		beego.AppConfig.String("PGschema")+"")
+
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
