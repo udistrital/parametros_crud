@@ -5,12 +5,14 @@ API CRUD para la gestión de información definida por la organización para las
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
-* [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
-* [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-* [Docker](https://docs.docker.com/engine/install/ubuntu/)
-* [Docker Compose](https://docs.docker.com/compose/)
+
+- [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
+- [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ### Variables de Entorno
+
 ```shell
 # parametros de api
 PARAMETROS_CRUD_HTTP_PORT=[Puerto de exposición del API]
@@ -23,9 +25,11 @@ PARAMETROS_CRUD_PGPORT=[Puerto de la BD]
 PARAMETROS_CRUD_PGDB=[Nombre de Base de Datos]
 PARAMETROS_CRUD_PGSCHEMA=[Nombre del Esquema de Base de Datos]
 ```
-**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con PARAMETROS_CRUD_...
+
+**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con `PARAMETROS_CRUD_...`
 
 ### Ejecución del Proyecto
+
 ```shell
 #1. Obtener el repositorio con Go
 go get github.com/udistrital/parametros_crud
@@ -39,12 +43,15 @@ git pull origin develop && git checkout develop
 # 4. alimentar todas las variables de entorno que utiliza el proyecto.
 PARAMETROS_CRUD_HTTP_PORT=8080 PARAMETROS_CRUD_PGHOST=127.0.0.1:27017 PARAMETROS_CRUD_SOME_VARIABLE=some_value bee run
 ```
+
 ### Ejecución Dockerfile
+
 ```shell
 # Implementado para despliegue del Sistema de integración continua CI.
 ```
 
 ### Ejecución docker-compose
+
 ```shell
 #1. Clonar el repositorio
 git clone -b develop https://github.com/udistrital/parametros_crud
@@ -66,20 +73,22 @@ docker ps
 ```
 
 ### Ejecución Pruebas
+
 Pruebas unitarias
+
 ```shell
 # En Proceso
 ```
 
 ## Modelo de Datos
+
 [Modelo de Datos Parametros_crud](/sql/modelo_parametros_crud.png)
 
-
 ## Estado CI
+
 | Develop | Relese 0.0.1 | Master |
 | -- | -- | -- |
 | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) |
-
 
 ## Licencia
 
