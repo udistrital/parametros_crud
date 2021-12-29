@@ -82,7 +82,8 @@ Pruebas unitarias
 
 ## Modelo de Datos
 
-[Modelo de Datos Parametros_crud](/sql/modelo_parametros_crud.png)
+[PGmodeler](database/parametros.dbm) -
+[SVG](database/parametros.svg)
 
 ## Estado CI
 
