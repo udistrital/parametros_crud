@@ -87,9 +87,9 @@ Pruebas unitarias
 
 ## Estado CI
 
-| Develop | Relese 0.0.1 | Master |
+| Develop | Release 1.0.0 | Master |
 | -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) |
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/release/1.0.0)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/parametros_crud/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/parametros_crud) |
 
 ## Licencia
 
