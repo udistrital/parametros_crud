@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="159,0" last-zoom="0.7"
+	 default-schema="public" default-owner="postgres">
+<role name="test"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<role name="desarrollooas"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="test" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8">
+	<role name="test"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="parametros" rect-visible="true" fill-color="#3071de">
+	<role name="test"/>
+</schema>
+
+<sequence name="area_tipo_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="parametros"/>
+	<role name="test"/>
+</sequence>
+
+<table name="area_tipo">
+	<schema name="parametros"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que parametriza diferentes areas generales a las que pertenecen un conjunto de tipos de parámetros. Ejemplo: tipo_unidad, area_conocimiento, clasificacion_ciiu]]></comment>
+	<position x="240" y="134"/>
+	<column name="id" not-null="true" sequence="parametros.area_tipo_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla area_tipo]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del area]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del area]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[En dado caso que se necesite establecer un orden a los registros que no se encuentre definido por aplicación ni por BD. Allí se almacena permitiendo realizar subitems mediante la precisión.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_area_tipo" type="pk-constr" table="parametros.area_tipo">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_parametro_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="parametros"/>
+	<role name="test"/>
+</sequence>
+
+<table name="tipo_parametro">
+	<schema name="parametros"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que parametriza diferentes tipos generales que englobaN un conjunto de parámetros.]]></comment>
+	<position x="720" y="107"/>
+	<column name="id" not-null="true" sequence="parametros.tipo_parametro_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_parametro]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del tipo]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del tipo]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[En dado caso que se necesite establecer un orden a los registros que no se encuentre definido por aplicación ni por BD. Allí se almacena permitiendo realizar subitems mediante la precisión.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<column name="area_tipo_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Referencia foránea a la tabla area_tipo que almacena las areas que engloban los tipos de parámetros]]></comment>
+	</column>
+	<constraint name="pk_tipo_parametro" type="pk-constr" table="parametros.tipo_parametro">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="parametro_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="parametros"/>
+	<role name="test"/>
+</sequence>
+
+<table name="parametro">
+	<schema name="parametros"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que registra los diferentes parámetros. Ejemplo: salario_minimo, punto_salarial.]]></comment>
+	<position x="1220" y="167"/>
+	<column name="id" not-null="true" sequence="parametros.parametro_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla parametro]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parametro.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del parametro.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[En dado caso que se necesite establecer un orden a los registros que no se encuentre definido por aplicación ni por BD. Allí se almacena permitiendo realizar subitems mediante la precisión.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<column name="tipo_parametro_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Referencia foranea a la tabla tipo_parametro que almacena un identificador que engloba un conjunto de parámetros]]></comment>
+	</column>
+	<column name="parametro_padre_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Referencia foranea al id del párametro padre que se almacena en la misma tabla]]></comment>
+	</column>
+	<constraint name="pk_parametro" type="pk-constr" table="parametros.parametro">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="periodo_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="parametros"/>
+	<role name="test"/>
+</sequence>
+
+<table name="periodo">
+	<schema name="parametros"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que parametriza los diferentes tipos de periodo asociados a un negocio/aplicacion y al parametro determinado.]]></comment>
+	<position x="1220" y="447"/>
+	<column name="id" not-null="true" sequence="parametros.periodo_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla periodo.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del periodo.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del periodo.]]></comment>
+	</column>
+	<column name="year">
+		<type name="numeric" length="4" precision="0"/>
+		<comment><![CDATA[Campo que indica el año para el cual es vigente el periodo.]]></comment>
+	</column>
+	<column name="ciclo">
+		<type name="character varying" length="4"/>
+		<comment><![CDATA[Campo que permite llevar un control de los diferentes periodos que puede tener un año para determiando negocio EJ: Periodos academicos 2020-1, 2020-2, 2020-3.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="aplicacion_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla aplicacion del esquema configuracion, define el contexto y el negocio en el que se usa el periodo de vigencia.]]></comment>
+	</column>
+	<column name="inicio_vigencia" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que es valido un parametro.]]></comment>
+	</column>
+	<column name="fin_vigencia" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que termina de ser valido un parametro.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_periodo" type="pk-constr" table="parametros.periodo">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="parametro_periodo_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="parametros"/>
+	<role name="test"/>
+</sequence>
+
+<table name="parametro_periodo">
+	<schema name="parametros"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que refleja la relación entre los parámetros y su periodo]]></comment>
+	<position x="1760" y="247"/>
+	<column name="id" not-null="true" sequence="parametros.parametro_periodo_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla periodo_parametro.]]></comment>
+	</column>
+	<column name="parametro_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Referencia foranea a la tabla parametro que almacena cada párametro]]></comment>
+	</column>
+	<column name="periodo_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Referencia foranea a la tabla periodo que almacena la vigencia de cada párametro]]></comment>
+	</column>
+	<column name="valor">
+		<type name="json" length="0"/>
+		<comment><![CDATA[Objeto que representa el conjunto de valores que pueden estar asociados a un parámetro. Ej: Porcentaje impuesto, salario mínimo, etc.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<constraint name="pk_parametro_periodo" type="pk-constr" table="parametros.parametro_periodo">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_area_tipo" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="parametros.area_tipo" table="parametros.tipo_parametro">
+	<columns names="area_tipo_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_parametro_padre" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="parametros.parametro" table="parametros.parametro">
+	<columns names="parametro_padre_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tipo_parametro" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="parametros.tipo_parametro" table="parametros.parametro">
+	<columns names="tipo_parametro_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_parametro" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="parametros.parametro" table="parametros.parametro_periodo">
+	<columns names="parametro_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_periodo" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="parametros.periodo" table="parametros.parametro_periodo">
+	<columns names="periodo_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_tipo_parametro_area_tipo" type="relfk"
+	 custom-color="#2cef65"
+	 src-table="parametros.tipo_parametro"
+	 dst-table="parametros.area_tipo"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_parametro_parametro" type="relfk"
+	 custom-color="#62c856"
+	 src-table="parametros.parametro"
+	 dst-table="parametros.parametro"
+	 src-required="false" dst-required="false">
+	<line>
+		<position x="1544.76" y="272.3"/>
+	<position x="1544.76" y="156"/>
+	<position x="1429.17" y="156"/>
+	</line>
+</relationship>
+
+<relationship name="rel_parametro_tipo_parametro" type="relfk"
+	 custom-color="#76d601"
+	 src-table="parametros.parametro"
+	 dst-table="parametros.tipo_parametro"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_parametro_periodo_parametro" type="relfk"
+	 custom-color="#f02dc1"
+	 src-table="parametros.parametro_periodo"
+	 dst-table="parametros.parametro"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_parametro_periodo_periodo" type="relfk"
+	 custom-color="#0ec8f3"
+	 src-table="parametros.parametro_periodo"
+	 dst-table="parametros.periodo"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
