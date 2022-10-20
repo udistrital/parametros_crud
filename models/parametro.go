@@ -22,7 +22,7 @@ type Parametro struct {
 	ParametroPadreId  *Parametro     `orm:"column(parametro_padre_id);rel(fk);null"`
 }
 
-func (t *Parametro) TableName() string { 
+func (t *Parametro) TableName() string {
 	return "parametro"
 }
 
@@ -61,6 +61,9 @@ func GetAllParametro(query map[string]string, fields []string, sortby []string, 
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}
