@@ -1,11 +1,11 @@
 module github.com/udistrital/parametros_crud
 
-go 1.18
+go 1.24
 
 require (
 	github.com/astaxie/beego v1.12.3
-	github.com/lib/pq v1.10.0
-	github.com/udistrital/utils_oas v0.0.0-20231023144624-01b1240c9f57
+	github.com/lib/pq v1.10.9
+	github.com/udistrital/utils_oas v0.0.0-20250917065514-c74562ac40b4
 )
 
 require (
@@ -27,10 +27,10 @@ require (
 	github.com/shiena/ansicolor v0.0.0-20200904210342-c7312218db18 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.34.0 // indirect
-	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
-	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
-	golang.org/x/text v0.7.0 // indirect
+	golang.org/x/crypto v0.19.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/genproto v0.0.0-20210114201628-6edceaf6022f // indirect
 	google.golang.org/grpc v1.35.0 // indirect
 	google.golang.org/protobuf v1.26.0 // indirect
