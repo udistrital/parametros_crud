@@ -77,7 +77,6 @@ steps:
 - name: go_build
   image: golang:1.24
   commands:
-  - go get -t
   - GOOS=linux GOARCH=amd64 go build -o main
   when:
     branch:
@@ -91,8 +90,7 @@ steps:
     - push
 
 - name: beego_migrate
-  image: golang:1.18
-  failure: ignore
+  image: golang:1.24
   environment:
     PG_MIGRATION_USER:
       from_secret: PG_MIGRATION_USER
@@ -103,8 +101,7 @@ steps:
     PG_MIGRATION_DBNAME:
       from_secret: PG_MIGRATION_DBNAME
   commands:
-  - go get -t
-  - go get -u github.com/beego/bee
+  - go install github.com/beego/bee@latest
   - bee migrate -driver=postgres -conn="postgres://$${PG_MIGRATION_USER}:$${PG_MIGRATION_PASS}@$${PG_MIGRATION_URL}:5432/$${PG_MIGRATION_DBNAME}?sslmode=disable"
   when:
     branch:
@@ -113,8 +110,7 @@ steps:
     - push
 
 - name: beego_rollback
-  image: golang:1.18
-  failure: ignore
+  image: golang:1.24
   environment:
     PG_MIGRATION_USER:
       from_secret: PG_MIGRATION_USER
@@ -125,8 +121,7 @@ steps:
     PG_MIGRATION_DBNAME:
       from_secret: PG_MIGRATION_DBNAME
   commands:
-  - go get -t
-  - go get -u github.com/beego/bee
+  - go install github.com/beego/bee@latest
   - bee migrate rollback -driver=postgres -conn="postgres://$${PG_MIGRATION_USER}:$${PG_MIGRATION_PASS}@$${PG_MIGRATION_URL}:5432/$${PG_MIGRATION_DBNAME}?sslmode=disable"
   when:
     branch:
